@@ -13,4 +13,19 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     } else {
         alert('Invalid username or password');
     }
+    
 });
+// Assume this function is called on login
+function handleLogin() {
+    console.log("Login process started");
+    
+    // Dummy check for login
+    if (username === "user" && password === "pass") {
+        console.log("Login successful");
+        window.location.href = "index.html";
+    } else {
+        console.log("Login failed");
+        // Show an error message
+    }
+}
+
