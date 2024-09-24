@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return 'Hello! How can I assist you today?';
         } else if (userText.includes('how are you')) {
             return 'I\'m just a bot, but I\'m doing great! How about you?';
-        } else if (userText.includes('image')) {
+        } else if (userText.includes('upload')) {
             return 'You can upload an image using the upload button or capture it with your camera!';
         } else if (userText.includes('bye')) {
             return 'Goodbye! Have a wonderful day!';
@@ -91,6 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return 'I can\'t check the weather right now, but you can use a weather app for that!';
         } else if (userText.includes('joke')) {
             return 'Why did the scarecrow win an award? Because he was outstanding in his field!';
+	} else if (userText.includes('what the image content ?')) {
+            return 'its seems like Panner Paratha ';
+	} else if (userText.includes('what is the price?')) {
+            return '225 Rupees ';
+	} else if (userText.includes('how much calories it contains per 100 gram?')) {
+            return 'Energy: 250 kcal, Total fat: 15-20 g, Saturated fat: 15-20 g, Trans fat: 0.4 g, Protein: 10-15 g, Total carbohydrate: 30-40 g, Added sugar: 19.7 g, Calcium: 148 mg ';
         } else {
             return 'I\'m not sure how to respond to that. Can you ask something else?';
         }
@@ -120,6 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const reader = new FileReader();
             reader.onload = function(e) {
                 const imageUrl = e.target.result;
+
+                // Create and append the image element
                 const imgElement = document.createElement('img');
                 imgElement.src = imageUrl;
                 imgElement.className = 'message user';
@@ -127,8 +135,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 messagesContainer.appendChild(imgElement);
                 messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
+                // Add a message after the image upload
+                addMessage('Image uploaded successfully!', 'bot');
+
                 // Store message in chat history
                 chatHistories[currentUser].push(imgElement.outerHTML);
+                chatHistories[currentUser].push(`<div class="message bot">Image uploaded successfully!<span class="timestamp">${new Date().toLocaleTimeString()}</span></div>`);
                 saveChatHistory();
             };
             reader.readAsDataURL(file);
