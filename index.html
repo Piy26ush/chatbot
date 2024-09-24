@@ -7,49 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div id="userSwitcherContainer">
-    <label for="userSwitcher">Switch User: </label>
-    <select id="userSwitcher" class="inputField">
-        <option value="User1">User 1</option>
-        <option value="User2">User 2</option>
-        <option value="User3">User 3</option>
-    </select>
-</div>
-
-<div id="chatbotContainer">
-    <div id="header">
-        <h2>Chatbot Image Scanner</h2>
-        <button id="darkModeToggle" class="btn">Toggle Dark Mode</button>
+    <div id="userSwitcherContainer">
+        <label for="userSwitcher">Switch User: </label>
+        <select id="userSwitcher" class="inputField">
+            <option value="User1">User 1</option>
+            <option value="User2">User 2</option>
+            <option value="User3">User 3</option>
+        </select>
     </div>
-    <div id="messagesContainer"></div>
-    <div id="controlsContainer">
-        <input type="file" id="imageInput" class="inputField" accept="image/*">
-        <div id="imagePreviewContainer">
-            <img id="imagePreview" src="" alt="Image Preview" style="display: none;">
+
+    <div id="chatbotContainer">
+        <div id="header">
+            <h2>Chatbot Image Scanner</h2>
+            <button id="darkModeToggle" class="btn">Toggle Dark Mode</button>
         </div>
-        <button id="uploadBtn" class="btn">Upload Image</button>
-        <input type="text" id="userInput" class="inputField" placeholder="Ask a question...">
-        <button id="sendBtn" class="btn">Send</button>
+        <div id="messagesContainer"></div>
+        <div id="controlsContainer">
+            <input type="file" id="imageInput" class="inputField" accept="image/*">
+            <div id="imagePreviewContainer">
+                <img id="imagePreview" src="" alt="Image Preview" style="display: none;">
+            </div>
+            <button id="uploadBtn" class="btn">Upload Image</button>
+            <input type="text" id="userInput" class="inputField" placeholder="Ask a question...">
+            <button id="sendBtn" class="btn">Send</button>
+        </div>
+        <button id="clearChatBtn" class="btn clearBtn">Clear Chat</button>
+        
+        <!-- Live Camera Feature -->
+        <div id="cameraContainer">
+            <button id="cameraBtn" class="btn">Open Camera</button>
+            <video id="videoElement" autoplay style="display: none;"></video>
+            <button id="captureBtn" class="btn" style="display: none;">Capture Image</button>
+        </div>
     </div>
-    <button id="clearChatBtn" class="btn clearBtn">Clear Chat</button>
-    
-    <!-- Live Camera Feature -->
-    <div id="cameraContainer">
-        <button id="cameraBtn" class="btn">Open Camera</button>
-        <video id="videoElement" autoplay style="display: none;"></video>
-        <button id="captureBtn" class="btn" style="display: none;">Capture Image</button>
-    </div>
-</div>
 
-<script src="script.js"></script>
-<script>
-    // Check if user is logged in
-    document.addEventListener('DOMContentLoaded', function() {
-        if (!localStorage.getItem('loggedIn')) {
-            window.location.href = 'login.html'; // Redirect to login if not logged in
-        }
-    });
-</script>
+    <script src="script.js"></script>
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('loggedIn')) {
+                window.location.href = 'login.html'; // Redirect to login if not logged in
+            }
+        });
+    </script>
 </body>
 </html>
